@@ -14,6 +14,8 @@ from pathlib import Path
 from datetime import timedelta
 from decouple import config
 import dj_database_url
+
+
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -240,11 +242,12 @@ AUTHENTICATION_BACKENDS = [
 ]
 SOCIALACCOUNT_PROVIDERS = {    
     'google': {
-        'APP':{
-          'client_id' = os.getenv("GOOGLE_CLIENT_ID"),
-            'secret' = os.getenv("GOOGLE_CLIENT_SECRET"),
-            'key'= ''
-          },
+        'APP': {
+    'client_id': os.getenv("GOOGLE_CLIENT_ID"),
+    'secret': os.getenv("GOOGLE_CLIENT_SECRET"),
+    'key': ''
+}
+
 }
         # 'SCOPE': [
         #     'profile',
@@ -254,3 +257,7 @@ SOCIALACCOUNT_PROVIDERS = {
         #     'access_type': 'online',
         # 
     }
+if 'RENDER' in os.environ:
+    DEBUG = False
+    ALLOWED_HOSTS = [os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
+    DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
