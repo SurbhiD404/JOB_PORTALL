@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google OAuth Login</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
+</head>
+
+<body>
+    <div class="container">
+        <h1>Login with Google</h1>
+        
+        <div id="g_id_onload"
+             data-client_id="579676802175-qrvo77iv1ae3draqcmqqh5iuli57mhhf.apps.googleusercontent.com"
+             data-callback="handleGoogleSignIn"
+             data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin" data-type="standard" data-size="large"></div>
+
+     
+        <div id="user-info" style="display: none;">
+            <h2>Welcome, <span id="user-name"></span>!</h2>
+            <p>Email: <span id="user-email"></span></p>
+        </div>
+        <p id="error-message" style="color: red; display: none;"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

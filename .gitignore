@@ -1,0 +1,23 @@
+# Secrets and environment
+.env
+
+# Python cache
+*.pyc
+*.pyo
+__pycache__/
+*.egg-info/
+.pytest_cache/
+
+# Database
+db.sqlite3
+
+# Static files 
+staticfiles/
+
+# Logs and temp files
+*.log
+*.pot
+*.tmp
+
+# VS Code settings
+.vscode/
